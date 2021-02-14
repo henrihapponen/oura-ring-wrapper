@@ -7,7 +7,7 @@ The API documentation on Oura's website provides very little guidance, which is 
 
 ## Requirements
 
-To be able to use the Oura API, you need to have an Oura account. Assuming that you use the ring, this step should already be done.
+To be able to use the Oura API, you need to have an Oura account. Assuming that you are an Oura user, this step should already be completed.
 
 In addition, you need a Personal Access Token (PAT), which can be created on Oura website (once logged in):
 https://cloud.ouraring.com/personal-access-tokens
@@ -16,7 +16,7 @@ https://cloud.ouraring.com/personal-access-tokens
 
 ## How It Works
 
-This project includes two parts:
+This project includes two parts: `get-ring-data.py` and `visualize.py`
 
 ### 1. `get-ring-data.py` is a script used to download all the user data the Oura API has to offer (there's tons!).
 
