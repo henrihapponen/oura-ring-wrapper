@@ -22,6 +22,6 @@ It returns 5 CSV files:
 - 
 
 
-### 3. `insights.py` is an attempt to get some new insight additional to what Oura provides on their app and website
+### 3. `insights.py` is an attempt to get new insight additional to what Oura provides on their app
 - 
 
