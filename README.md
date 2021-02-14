@@ -2,7 +2,7 @@
 
 This script provides some useful tools that help working with the Oura Sleep Ring API.
 
-The API documentation on Oura's website provides very little guidance, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their Oura sleep data beyond what is possible on the official app.
+The API documentation on Oura's website provides very little guidance, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their Oura sleep data beyond what is possible on the official app or the website.
 
 
 ## Requirements
@@ -13,6 +13,8 @@ In addition, you need a Personal Access Token (PAT), which can be created on Our
 https://cloud.ouraring.com/personal-access-tokens
 - Press 'Create New Personal Access Token'
 - Copy and save your PAT immediately, as you will not be able to view it again after leaving the page (don't worry, you can always create a new token!).
+
+This token is used to access *your* personal data instead of someone else's.
 
 ## How It Works
 
@@ -26,7 +28,7 @@ It returns 6 CSV files:
 - `readiness.csv` for readiness data (i.e. some recovery indicators and lagged values)
 - `bedtime.csv` for bedtime data (ideal bedtimes only)
 - `combined.csv` for a combined dataset with sleep, activity, and readiness data (bedtime data left out)
-- `trimmed.csv` for a trimmed version of the full combined dataset (for example, most score contributors omitted)
+- `shortened.csv` for a shortened version of the full combined dataset (for example, most score contributors omitted)
 
 To run `get-ring-data.py`:
 - Paste your PAT on row 22 where indicated.
