@@ -2,20 +2,33 @@
 
 This script provides some useful tools to work with the Oura Sleep Ring API.
 
-Background: I'm a happy owner of Oura Ring and wanted to analyse my sleep data beyond what the app allows. It seemed difficult to find these basic tools online (Oura is still up-and-coming), so I decided to create this project. I hope this is helpful for anyone who wants to dive deeper into their sleep data.
+I couldn't find anything like this online so I decided to create this project. I hope this is helpful for anyone who wants to dive deeper into their Oura sleep data.
 
 ## How It Works
 
 This project includes three parts:
 
-### 1. `get-ring-data.py` is the script used to download all the data a user has.
+### 1. `get-ring-data.py` is a script used to download all the data a Oura user has.
 
-It returns 5 CSV files:
+It returns 6 CSV files:
 - `sleep.csv` for all sleep data
 - `activity.csv` for all activity data
 - `readiness.csv` for readiness data (i.e. some recovery indicators and lagged values for example)
-- `combined.csv` for all of these three datasets combined
-- `modified.csv` for a trimmed version the combined data
+- `bedtime.csv` for bedtime data (only ideal bedtimes)
+- `combined.csv` for combined dataset with sleep, activity, and readiness data (ideal bedtimes left out)
+- `trimmed.csv` for a trimmed version the full combined dataset (e.g. most score contributors omitted)
+
+For this part, you need a Personal Access Token (PAT), which can be created on Oura website (once logged in first:
+https://cloud.ouraring.com/personal-access-tokens
+- Press 'Create New Personal Access Token'
+- Copy and save this immediately, as you will not be able to see it again once you leave the page (but don't worry, you can always create a new token!).
+
+Paste your PAT on row 22 of `get-ring-data.py`
+
+On row 28 and 29, type in the start and end dates of the period for which you want the data
+
+Run the script and the above mentioned CSV files are created.
+
 
 ### 2. `visualize.py` is a script for plotting all this data. These include:
 - Sleep, activity, and readiness trends
