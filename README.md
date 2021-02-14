@@ -6,7 +6,9 @@ Background: I'm a happy owner of Oura Ring and wanted to analyse my sleep data b
 
 ### How It Works
 
-1. `get-ring-data.py` is the script used to download all the data a user has.
+This project involves three parts:
+
+## 1. `get-ring-data.py` is the script used to download all the data a user has.
 
 It returns 5 CSV files:
 - `sleep.csv` for all sleep data
@@ -15,5 +17,11 @@ It returns 5 CSV files:
 - `combined.csv` for all of these three datasets combined
 - `modified.csv` for a trimmed version the combined data
 
-2. `visualize.py` is a script for plotting the data returned by `get-ring-data.py`. These include:
+### 2. `visualize.py` is a script for plotting the data returned by `get-ring-data.py`. These include:
 - 
+
+
+### 3. `insights.py` is an attempt to get some new insight additional to what Oura provides on their app and website
+
+- 
+
