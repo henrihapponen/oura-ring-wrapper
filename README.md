@@ -6,7 +6,8 @@ Background: I'm a happy owner of Oura Ring and wanted to analyse my sleep data b
 
 ### How It Works
 
-1. `get-ring-data.py` is the script used to download all the data a user has. \n
+1. `get-ring-data.py` is the script used to download all the data a user has.
+
 It returns 5 CSV files:
 - `sleep.csv` for all sleep data
 - `activity.csv` for all activity data
