@@ -2,11 +2,11 @@
 
 This script provides some useful tools to work with the Oura Sleep Ring API.
 
-I couldn't find anything like this online so I decided to create this project. I hope this is helpful for anyone who wants to dive deeper into their Oura sleep data.
+I couldn't find similar basic tools online so I decided to create this project. I hope this is helpful for anyone who wants to download and analyse their Oura sleep data beyond what is possible with the official app.
 
 ## How It Works
 
-This project includes three parts:
+This project includes two parts:
 
 ### 1. `get-ring-data.py` is a script used to download all the data a Oura user has.
 
@@ -32,9 +32,5 @@ Run the script and the above mentioned CSV files are created.
 
 ### 2. `visualize.py` is a script for plotting all this data. These include:
 - Sleep, activity, and readiness trends
-- 
-
-
-### 3. `insights.py` is an attempt to get new insight additional to what Oura provides on their app
 - 
 
