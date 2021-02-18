@@ -2,7 +2,7 @@
 
 This script provides some useful tools to help working with the Oura Sleep Ring API.
 
-The API documentation on Oura's website provides very little guidance, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their Oura sleep data beyond what is possible on the official app or the website.
+The API documentation on Oura's website provides very little guidance and some sections are not even documented, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their Oura sleep data beyond what is possible on the official app or the website.
 
 
 ## Requirements
@@ -18,7 +18,7 @@ This token is used to access *your* personal data instead of someone else's.
 
 ## How It Works
 
-### `get-ring-data.py` is a script used to download all the user data the Oura API has to offer (there's tons!).
+`get-ring-data.py` is a script used to download all the user data the Oura API has to offer (there's tons!).
 
 It returns 6 CSV files:
 - `sleep.csv` for all sleep data
@@ -28,7 +28,7 @@ It returns 6 CSV files:
 - `combined.csv` for a combined dataset with sleep, activity, and readiness data (bedtime data left out)
 - `short.csv` for a shortened version of the full combined dataset (for example, most score contributors omitted)
 
-To run `get-ring-data.py`:
+To run:
 - Paste your PAT on row 22 where indicated.
 - On rows 26 and 27, type in the start and end dates of the period for which you want the data.
 - Run the script and the CSV files are created.
