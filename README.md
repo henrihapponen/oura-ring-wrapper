@@ -30,8 +30,7 @@ It returns 6 CSV files:
 
 To run:
 - Paste your PAT on row 22 where indicated.
-- On rows 26 and 27, type in the start and end dates of the period for which you want the data.
+- On rows 25 and 26, type in the start and end dates of the period for which you want the data.
 - Run the script and the CSV files are created.
 
 Enjoy digging into your sleep data!
-
