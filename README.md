@@ -1,8 +1,8 @@
 # Oura-Ring-API-Tools
 
-This script provides some useful tools to help working with the Oura Sleep Ring API.
+This script is an attempt to provide some useful tools to help working with the Oura Ring API.
 
-The API documentation on Oura's website provides very little guidance and some sections are not even documented, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their Oura sleep data beyond what is possible on the official app or the website.
+The API documentation on Oura's website provides very little guidance and some sections are not even documented, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their sleep and activity data beyond what is possible on the official app or the website.
 
 
 ## Requirements
