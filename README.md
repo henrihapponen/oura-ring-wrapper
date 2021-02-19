@@ -29,7 +29,7 @@ It returns 6 CSV files:
 - `short.csv` for a shortened version of the combined dataset (e.g. most score contributors omitted)
 
 To run:
-- Paste your PAT on row 22 where indicated.
+- Paste your PAT on row 19 where indicated.
 - On rows 25 and 26, type in the start and end dates of the period for which you want the data.
 - Run the script and the CSV files are created.
 
