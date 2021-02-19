@@ -24,9 +24,9 @@ It returns 6 CSV files:
 - `sleep.csv` for all sleep data
 - `activity.csv` for all activity data
 - `readiness.csv` for readiness data (i.e. some recovery indicators and lagged values)
-- `bedtime.csv` for bedtime data (ideal bedtimes only)
+- `bedtime.csv` for bedtime data (ideal bedtimes)
 - `combined.csv` for a combined dataset with sleep, activity, and readiness data (bedtime data left out)
-- `short.csv` for a shortened version of the full combined dataset (for example, most score contributors omitted)
+- `short.csv` for a shortened version of the combined dataset (e.g. most score contributors omitted)
 
 To run:
 - Paste your PAT on row 22 where indicated.
