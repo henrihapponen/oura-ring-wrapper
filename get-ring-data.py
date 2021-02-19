@@ -30,10 +30,8 @@ end_date = "2021-01-01"
 root_endpoint = "https://api.ouraring.com"
 
 # Optional: get basic user info with your PAT
-user_info = requests.get("https://api.ouraring.com/v1/" +
-                         "userinfo" +
-                         "?access_token=" +
-                         personal_access_token)
+user_info = requests.get("https://api.ouraring.com/v1/userinfo" +
+                         "?access_token=" + personal_access_token)
 
 # Optional: Print the status code of this request
 print(user_info.status_code)
@@ -48,8 +46,8 @@ print(user_info.json())
 # 1. Sleep Data
 
 # Request sleep data
-sleep_data_request = requests.get("https://api.ouraring.com/v1/sleep?" +
-                                  "start=" + start_date +
+sleep_data_request = requests.get("https://api.ouraring.com/v1/sleep" +
+                                  "?start=" + start_date +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
@@ -66,8 +64,8 @@ sleep_df.to_csv("sleep.csv")
 # 2. Activity Data
 
 # Request activity data
-activity_data_request = requests.get("https://api.ouraring.com/v1/activity?" +
-                                  "start=" + start_date +
+activity_data_request = requests.get("https://api.ouraring.com/v1/activity" +
+                                  "?start=" + start_date +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
@@ -84,8 +82,8 @@ activity_df.to_csv("activity.csv")
 # 3. Readiness Data
 
 # Request readiness data
-readiness_data_request = requests.get("https://api.ouraring.com/v1/readiness?" +
-                                  "start=" + start_date +
+readiness_data_request = requests.get("https://api.ouraring.com/v1/readiness" +
+                                  "?start=" + start_date +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
@@ -102,8 +100,8 @@ readiness_df.to_csv("readiness.csv")
 # 4. Bedtime data
 
 # Request readiness data
-bedtime_data_request = requests.get("https://api.ouraring.com/v1/bedtime?" +
-                                  "start=" + start_date +
+bedtime_data_request = requests.get("https://api.ouraring.com/v1/bedtime" +
+                                  "?start=" + start_date +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
