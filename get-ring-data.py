@@ -51,13 +51,11 @@ sleep_data_request = requests.get("https://api.ouraring.com/v1/sleep" +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
-# Turn the response into a JSON file
+# Response to JSON to CSV
 sleep_data_json = sleep_data_request.json()["sleep"]
 
-# Read the JSON file into a data frame
 sleep_df = pd.DataFrame.from_dict(sleep_data_json, orient="columns")
 
-# Save the data frame to a CSV file
 sleep_df.to_csv("sleep.csv")
 
 
@@ -69,13 +67,11 @@ activity_data_request = requests.get("https://api.ouraring.com/v1/activity" +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
-# Turn the response into a JSON file
+# Response to JSON to CSV
 activity_data_json = activity_data_request.json()["activity"]
 
-# Read the JSON file into a data frame
 activity_df = pd.DataFrame.from_dict(activity_data_json, orient="columns")
 
-# Save the data frame as a CSV file
 activity_df.to_csv("activity.csv")
 
 
@@ -87,13 +83,11 @@ readiness_data_request = requests.get("https://api.ouraring.com/v1/readiness" +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
-# Turn the response into a JSON file
+# Response to JSON to CSV
 readiness_data_json = readiness_data_request.json()["readiness"]
 
-# Read the JSON file into a data frame
 readiness_df = pd.DataFrame.from_dict(readiness_data_json, orient="columns")
 
-# Save the data frame as a CSV file
 readiness_df.to_csv("readiness.csv")
 
 
@@ -105,13 +99,11 @@ bedtime_data_request = requests.get("https://api.ouraring.com/v1/bedtime" +
                                   "&end=" + end_date +
                                   "&access_token=" + personal_access_token)
 
-# Turn the response into a JSON file
+# Response to JSON to CSV
 bedtime_data_json = bedtime_data_request.json()["ideal_bedtimes"]
 
-# Read the JSON file into a data frame
 bedtime_df = pd.DataFrame.from_dict(bedtime_data_json, orient="columns")
 
-# Save the data frame as a CSV file
 bedtime_df.to_csv("bedtime.csv")
 
 
