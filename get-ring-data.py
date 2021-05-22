@@ -21,8 +21,8 @@ personal_access_token = 'YOURPERSONALACCESSTOKENHERE'
 # Format: 'YYYY-MM-DD'
 # For example: '2020-02-15'
 # Tip: The start date can be earlier than when you started using the Ring
-start_date = '2020-07-01'
-end_date = '2021-05-14'
+start_date = '2019-10-01'
+end_date = '2021-03-10'
 
 # Root endpoint for the API
 root_endpoint = 'https://api.ouraring.com'
