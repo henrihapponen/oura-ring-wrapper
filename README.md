@@ -1,8 +1,8 @@
-# Oura-Ring-API-Tools
+# Oura-Ring-API-Wrapper
 
 This script is an attempt to provide some useful tools to help working with the Oura Ring API.
 
-The API documentation on Oura's website provides very little guidance, with some sections lacking all documentation, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their sleep and activity data beyond what is possible on the Oura app or website.
+The API documentation on Oura's website provides very little guidance, with some sections lacking documentation completely, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their sleep and activity data beyond what is possible on the Oura app or website.
 
 
 ## Requirements
@@ -16,19 +16,19 @@ This token is used to access *your* personal data instead of someone else's.
 
 ## How It Works
 
-`get-ring-data.py` is a script used to download all the user data the Oura API has to offer (there's tons!).
+Included are four functions for requesting sleep, activity, readiness and bedtime data. There are three more functions to create a full dataset, a shortened dataset, and to save any dataset as a CSV file.
 
-It returns 6 separate CSV files:
-- `sleep.csv` for all sleep data
-- `activity.csv` for all activity data
-- `readiness.csv` for readiness data (i.e. some recovery indicators and lagged values)
+You can get 6 different datasets and convert these to CSV files:
+- `sleep.csv` for sleep data
+- `activity.csv` for activity data
+- `readiness.csv` for readiness data (i.e. some recovery indicators)
 - `bedtime.csv` for bedtime data (ideal bedtimes)
-- `combined.csv` for a combined dataset with sleep, activity, and readiness data (bedtime data left out)
-- `short.csv` for a shortened version of the combined dataset (e.g. most score contributors omitted)
+- `full.csv` for a full, combined dataset with sleep, activity, readiness and bedtime data
+- `short.csv` for a shortened version of the full dataset (e.g. most score contributors omitted)
 
 To run:
-- Paste your PAT on row 18 where indicated.
-- On rows 24 and 25, type in the start and end dates of the period for which you want the data.
-- Run the script and the CSV files are created.
+- Paste your PAT on row 17 where indicated.
+- On rows 21 and 21, type in the start and end dates of the period for which you want to request your data.
+- Call the functions you want and the data sets are created.
 
-Enjoy digging into your sleep data!
+Enjoy digging into your sleep data (there's tons)!
