@@ -31,4 +31,4 @@ To run:
 - On rows 21 and 21, type in the start and end dates of the period for which you want to request your data.
 - Call the functions you want and the data sets are created.
 
-Enjoy digging into your sleep data (there's tons)!
+Enjoy digging into your sleep data!
