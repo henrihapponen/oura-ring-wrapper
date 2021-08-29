@@ -27,8 +27,8 @@ You can get 6 different datasets and convert these to CSV files:
 - `short.csv` for a shortened version of the full dataset (e.g. most score contributors omitted)
 
 To run:
-- Paste your PAT on row 17 where indicated.
-- On rows 21 and 21, type in the start and end dates of the period for which you want to request your data.
+- Paste your PAT on row 15 where indicated.
+- On rows 19 and 20, type in the start and end dates of the period for which you want to request your data.
 - Call the functions you want and the data sets are created.
 
 Enjoy digging into your sleep data!
