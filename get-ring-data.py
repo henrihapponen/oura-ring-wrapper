@@ -2,16 +2,14 @@
 # Make sure that you have a Personal Access Token, which can be created
 # on the Oura website.
 
-# Import modules
-import requests
-import pandas as pd
-
-
 # From the Oura website:
 #   If you are using an existing OAuth2 library, you may need to configure the following URLs.
 #   Authorize: https://cloud.ouraring.com/oauth/authorize
 #   Access Token URL: https://api.ouraring.com/oauth/token
 
+# Imports
+import requests
+import pandas as pd
 
 # Insert your Personal Access Token here
 personal_access_token = 'YOURPERSONALACCESSTOKEN'
