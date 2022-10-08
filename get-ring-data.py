@@ -1,53 +1,30 @@
 # Wrapper for the Oura Sleep Ring API
-# Make sure that you have a Personal Access Token, which can be created
-# on the Oura website.
+# Make sure that you have a Personal Access Token, which can be created on the Oura website.
 
 # From the Oura website:
 #   If you are using an existing OAuth2 library, you may need to configure the following URLs.
 #   Authorize: https://cloud.ouraring.com/oauth/authorize
 #   Access Token URL: https://api.ouraring.com/oauth/token
 
-# Imports
 import requests
 import pandas as pd
 
-# Insert your Personal Access Token here
-personal_access_token = 'YOURPERSONALACCESSTOKEN'
 
-# Insert the time period for which you want to request your data
-# Format: 'YYYY-MM-DD'
-start_date = '2020-01-01'
-end_date = '2021-03-15'
-
-
-# Root endpoint for the API
-root_endpoint = 'https://api.ouraring.com'
-
-
-def get_user_info():
+def get_user_info(personal_access_token: str):
     """Request basic user info associated with your PAT"""
 
-    user_info = requests.get('https://api.ouraring.com/v1/userinfo?access_token={0}'.format(personal_access_token))
+    user_info = requests.get(f'https://api.ouraring.com/v1/userinfo?access_token={personal_access_token}')
 
     return print(user_info.json())
 
 
-def save_to_csv(df, name_of_file):
-    """Save a data set to CSV"""
-
-    df.to_csv(name_of_file + '.csv')
-
-    return
-
-
-def get_sleep_data():
+def get_sleep_data(personal_access_token: str, start_date: str, end_date: str):
     """Request sleep data"""
 
     print('Requesting sleep data... ', end='')
 
     sleep_data_request = requests.get(
-        'https://api.ouraring.com/v1/sleep?start={0}&end={1}&access_token={2}'.format(start_date, end_date,
-                                                                                      personal_access_token))
+        f'https://api.ouraring.com/v1/sleep?start={start_date}&end={end_date}&access_token={personal_access_token}')
 
     # Convert the response to JSON and read it into a data frame
     sleep_data_json = sleep_data_request.json()['sleep']
@@ -58,14 +35,13 @@ def get_sleep_data():
     return sleep_df
 
 
-def get_activity_data():
+def get_activity_data(personal_access_token: str, start_date: str, end_date: str):
     """Request activity data"""
 
     print('Requesting activity data... ', end='')
 
     activity_data_request = requests.get(
-        'https://api.ouraring.com/v1/activity?start={0}&end={1}&access_token={2}'.format(start_date, end_date,
-                                                                                         personal_access_token))
+        f'https://api.ouraring.com/v1/activity?start={start_date}&end={end_date}&access_token={personal_access_token}')
 
     # Convert the response to JSON and read it into a data frame
     activity_data_json = activity_data_request.json()["activity"]
@@ -76,14 +52,13 @@ def get_activity_data():
     return activity_df
 
 
-def get_readiness_data():
+def get_readiness_data(personal_access_token: str, start_date: str, end_date: str):
     """Request readiness data"""
 
     print('Requesting readiness data... ', end='')
 
     readiness_data_request = requests.get(
-        'https://api.ouraring.com/v1/readiness?start={0}&end={1}&access_token={2}'.format(start_date, end_date,
-                                                                                          personal_access_token))
+        f'https://api.ouraring.com/v1/readiness?start={start_date}&end={end_date}&access_token={personal_access_token}')
 
     # Convert the response to JSON and read it into a data frame
     readiness_data_json = readiness_data_request.json()['readiness']
@@ -100,8 +75,7 @@ def get_bedtime_data():
     print('Requesting bedtime data... ', end='')
 
     bedtime_data_request = requests.get(
-        'https://api.ouraring.com/v1/bedtime?start={0}&end={1}&access_token={2}'.format(start_date, end_date,
-                                                                                        personal_access_token))
+        f'https://api.ouraring.com/v1/bedtime?start={start_date}&end={end_date}&access_token={personal_access_token}')
 
     # Convert the response to JSON and read it into a data frame
     bedtime_data_json = bedtime_data_request.json()['ideal_bedtimes']
@@ -112,12 +86,11 @@ def get_bedtime_data():
     return bedtime_df
 
 
-def merge_all():
-    """Merges all 4 data sets (sleep, activity, readiness, bedtime) into one table"""
+def merge_all_to_full(sleep_df: pd.DataFrame, activity_df: pd.DataFrame, readiness_df: pd.DataFrame,
+                      bedtime_df: pd.DataFrame):
+    """Merges all 4 data frames (sleep, activity, readiness, bedtime) into one data frame"""
 
     print('Merging all four data sets... ', end='')
-
-    global sleep_df, activity_df, readiness_df, bedtime_df
 
     # The key date column for each data frame is:
     # 'summary_date' for sleep_df, activity_df and readiness_df
@@ -149,16 +122,14 @@ def merge_all():
     return full_df
 
 
-def get_shortened():
-    """Create a shortened version of the full data set"""
+def get_short_dataset(full_df: pd.DataFrame):
+    """Create a shortened version of the full dataset"""
 
     print('Creating a shortened version... ', end='')
 
-    global full_df
-
     short_df = full_df[['summary_date',
                         'sleep.period_id',  # If there are more than one sleep period for a day (e.g. naps)
-                        'sleep.is_longest',  # Identifies the longest sleep period (night) from shorter ones (naps)
+                        'sleep.is_longest', # Identifies the longest sleep period (night) from shorter ones (naps)
                         'sleep.deep',
                         'sleep.bedtime_start',
                         'sleep.bedtime_end',
@@ -201,19 +172,22 @@ if __name__ == '__main__':
 
     # For example:
 
-    get_user_info()
+    # Insert your Personal Access Token here
+    PERSONAL_ACCESS_TOKEN = 'YOUR_PERSONAL_ACCESS_TOKEN_HERE'
 
-    sleep_df = get_sleep_data()
-    save_to_csv(sleep_df, 'sleep')
+    # Insert the time period for which you want to request your data. Format: 'YYYY-MM-DD'
+    START_DATE = '2021-01-01'
+    END_DATE = '2021-01-01'
+
+    get_user_info(PERSONAL_ACCESS_TOKEN)
+
+    sleep_df = get_sleep_data(PERSONAL_ACCESS_TOKEN, START_DATE, END_DATE)
+    activity_df = get_activity_data(PERSONAL_ACCESS_TOKEN, START_DATE, END_DATE)
+    readiness_df = get_readiness_data(PERSONAL_ACCESS_TOKEN, START_DATE, END_DATE)
+    bedtime_df = get_bedtime_data(PERSONAL_ACCESS_TOKEN, START_DATE, END_DATE)
+
+    full_df = merge_all_to_full(sleep_df, activity_df, readiness_df, bedtime_df)
+    full_df.to_csv('full_df.csv', index=False, encoding='utf-8-sig')
     
-    activity_df = get_activity_data()
-    
-    readiness_df = get_readiness_data()
-    
-    bedtime_df = get_bedtime_data()
-    
-    full_df = merge_all()
-    save_to_csv(full_df, 'full')
-    
-    short_df = get_shortened()
-    save_to_csv(short_df, 'short')
+    short_df = get_short_dataset(full_df)
+    short_df.to_csv('short_df.csv', index=False, encoding='utf-8-sig')
