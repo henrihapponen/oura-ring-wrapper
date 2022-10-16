@@ -1,4 +1,4 @@
-# oura-ring-rrapper
+# oura-ring-wrapper
 
 This script provides some useful, lightweight functions that make it easier to work with the Oura Ring API.
 
