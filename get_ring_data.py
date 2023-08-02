@@ -69,7 +69,7 @@ def get_readiness_data(personal_access_token: str, start_date: str, end_date: st
     return readiness_df
 
 
-def get_bedtime_data():
+def get_bedtime_data(personal_access_token: str, start_date: str, end_date: str):
     """Request bedtime data"""
 
     print('Requesting bedtime data... ', end='')
