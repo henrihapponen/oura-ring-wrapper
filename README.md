@@ -1,16 +1,17 @@
 # oura-ring-wrapper
 
-This script provides some useful, lightweight functions that make it easier to work with the Oura Ring API.
+Simple, lightweight functions that make it easy to work with the Oura Ring API!
 
-The API documentation on Oura's website provides very little guidance, with some sections lacking documentation altogether, which is why I created this project. I hope this is helpful for anyone who wants to download and analyse their sleep and activity data beyond what is possible on the Oura app or website.
+I hope this is useful for anyone who wants to download and analyse their sleep and activity data beyond what's possible on the Oura app or website.
 
+The functions in this script are based on the API v2 documentation available here: https://cloud.ouraring.com/v2/docs
 
 ## Requirements
 
 To use the Oura API you need a Personal Access Token (PAT), which can be created on the Oura website (once logged in):
 https://cloud.ouraring.com/personal-access-tokens
 - Press "Create New Personal Access Token"
-- Copy and save your PAT immediately, as you will not be able to view it again after leaving the page (don't worry, you can always create a new token!).
+- Copy and save your PAT immediately, as you will not be able to view it again after leaving the page (but you can always create a new token!).
 
 This token is used to access *your* personal data instead of someone else's.
 
@@ -18,19 +19,32 @@ Project dependencies are listed in the `pyrpoject.toml` file. Use `pip install .
 
 ## How It Works
 
-Included are four functions for requesting sleep, activity, readiness and bedtime data. There are two more functions to create a full dataset and a shortened dataset.
+This script includes three functions to request data from the Oura API:
+- `request_user_info` for requesting basic user information
+- `request_data` for requesting data sets
+- `request_flat_data` for requesting data sets with the **contributors** field flattened out into separate columns
 
-You can get 6 different datasets using these functions:
-- `get_sleep_data` for all sleep data
-- `get_activity_data` for all activity data
-- `get_readiness_data` for readiness data (like recovery indicators)
-- `get_bedtime_data` for bedtime data (ideal bedtimes)
-- `merge_all_to_full` for a full, combined dataset with sleep, activity, readiness and bedtime data
-- `get_short_dataset` for a shortened version of the full dataset (e.g. most score contributors omitted)
+These are the data sets you can request:
+- `sleep`
+- `daily_sleep`
+- `daily_activity`
+- `daily_readiness`
+- `sleep_time`
+- `tag`
+- `workout`
+- `session`
+- `daily_spo2`
+- `heartrate`
+- `rest_mode_period`
+
+Flat versions (using the `request_flat_data` function) are available for the following data sets:
+- `daily_sleep`
+- `daily_activity`
+- `daily_readiness`
 
 Before you run:
 - Replace your PAT where indicated.
 - Where indicated, replace the start and end dates of the period for which you want to request your data.
-- Call the functions you want and the data sets are created.
+- Specify the data sets you want and the download can begin.
 
 Enjoy digging into your sleep data!
