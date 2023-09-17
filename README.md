@@ -14,7 +14,7 @@ https://cloud.ouraring.com/personal-access-tokens
 
 This token is used to access *your* personal data instead of someone else's.
 
-Other requirements are in the `requirements.txt` file. Use `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to install.
+Project dependencies are listed in the `pyrpoject.toml` file. Use `pip install .` to install them.
 
 ## How It Works
 
