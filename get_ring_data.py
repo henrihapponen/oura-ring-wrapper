@@ -1,10 +1,13 @@
-# Wrapper for the Oura Sleep Ring API
-# Make sure that you have a Personal Access Token, which can be created on the Oura website.
+"""
+Wrapper for the Oura Sleep Ring API v2.
 
-# From the Oura website:
-#   If you are using an existing OAuth2 library, you may need to configure the following URLs.
-#   Authorize: https://cloud.ouraring.com/oauth/authorize
-#   Access Token URL: https://api.ouraring.com/oauth/token
+Make sure that you have a Personal Access Token, which can be created on the Oura website.
+
+From the Oura website:
+    - If you are using an existing OAuth2 library, you may need to configure the following URLs.
+    - Authorize: https://cloud.ouraring.com/oauth/authorize
+    - Access Token URL: https://api.ouraring.com/oauth/token
+"""
 
 import requests
 import pandas as pd
@@ -19,9 +22,9 @@ def request_user_info(personal_access_token: str):
         'Authorization': f'Bearer {personal_access_token}'
     }
 
-    user_info = requests.request('GET', url, headers=headers)
+    user_info = requests.request('GET', url, headers=headers, timeout=10)
 
-    return print(user_info.json())
+    print(user_info.json())
 
 
 def request_data(data_type: str,
@@ -64,7 +67,7 @@ def request_data(data_type: str,
         'Authorization': f'Bearer {personal_access_token}'
     }
 
-    response = requests.request('GET', url, headers=headers, params=params)
+    response = requests.request('GET', url, headers=headers, params=params, timeout=10)
 
     response_json = response.json()['data']
     response_df = pd.DataFrame.from_dict(response_json, orient='columns')
@@ -111,7 +114,7 @@ def request_flat_data(data_type: str,
         'Authorization': f'Bearer {personal_access_token}'
     }
 
-    response = requests.request('GET', url, headers=headers, params=params)
+    response = requests.request('GET', url, headers=headers, params=params, timeout=10)
 
     response_json = response.json()['data']
     response_df = pd.DataFrame.from_dict(response_json, orient='columns')
@@ -151,5 +154,5 @@ if __name__ == '__main__':
                                             END_DATE)
 
     # Save to CSV
-    sleep_df.to_csv('flat_df.csv', index=False, encoding='utf-8-sig')
+    sleep_df.to_csv('sleep_df.csv', index=False, encoding='utf-8-sig')
     daily_sleep_flat_df.to_csv('daily_sleep_flat_df.csv', index=False, encoding='utf-8-sig')
