@@ -1,0 +1,21 @@
+[project]
+name = "oura-ring-wrapper"
+version = "1.0.0"
+authors = [
+    {name = "Henri Happonen", email = "henkka.happonen@gmail.com"},
+]
+description = "A simple API wrapper for Oura sleep ring."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3"
+]
+dependencies = [
+    "requests",
+    "pandas"
+]
+[project.urls]
+"Homepage" = "https://github.com/henrihapponen/oura-ring-wrapper"
